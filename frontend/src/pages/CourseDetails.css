@@ -1,0 +1,89 @@
+/* Container */
+.details-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+  min-height: 100vh;
+  color: #fff;
+}
+
+/* Header */
+.details-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.details-header h1 {
+  font-size: 28px;
+}
+
+.user-name {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* Card */
+.course-card {
+  background: #fff;
+  color: #333;
+  max-width: 700px;
+  margin: 0 auto;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Image */
+.course-image {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+/* Titre */
+.course-title {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+/* Description */
+.course-desc {
+  font-size: 16px;
+  margin-bottom: 25px;
+  color: #555;
+}
+
+/* Bouton */
+.enroll-button {
+  padding: 12px 25px;
+  background-color: #2575fc;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.enroll-button:hover {
+  background-color: #1a5dcc;
+}
+
+/* Loading */
+.loading {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 20px;
+}
