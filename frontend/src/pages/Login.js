@@ -16,7 +16,7 @@ const Login = () => {
       localStorage.setItem("userId", res.data.userId);
       console.log(res.data);
       localStorage.setItem("userName",res.data.name);
-      navigate("/");
+      navigate("/courses");
     } catch (err) {
       alert("Erreur login");
     }

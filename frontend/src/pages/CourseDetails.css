@@ -87,3 +87,46 @@
   margin-top: 50px;
   font-size: 20px;
 }
+
+
+.details-header {
+  display: flex;
+  align-items: center;
+  justify-content:space-between; /* espace entre les extrêmes */
+  margin-bottom: 20px;
+}
+
+/* Bouton back très petit à gauche */
+.back-button {
+  font-size: 16px;       /* taille du texte */
+  padding: 6px 12px;      /* padding très petit */
+  width: auto;           /* largeur automatique selon contenu */
+  min-width: 0;          /* éviter largeur minimale par défaut */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: transparent;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* Container pour back + titre pour les aligner côte à côte */
+.back-title-container {
+  display: flex;
+  align-items: start;
+}
+
+/* Titre détails */
+.details-title {
+  font-size: 20px;
+  margin: 0;
+}
+
+/* Nom utilisateur aligné à droite */
+.user-name {
+  font-size: 16px;
+  font-weight: bold;
+}

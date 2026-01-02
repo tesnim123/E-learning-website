@@ -1,20 +1,19 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom"; // ← ajoute useNavigate
 import API from "../api";
 import "./CourseDetails.css";
 
 const CourseDetails = () => {
   const { id } = useParams();
+  const navigate = useNavigate(); // ← hook pour navigation
   const [course, setCourse] = useState(null);
   const [userName, setUserName] = useState("");
 
   useEffect(() => {
-    // Récupération du cours
     API.get(`/courses/${id}`)
       .then((res) => setCourse(res.data))
       .catch((err) => console.error(err));
 
-    // Récupération du nom utilisateur depuis localStorage
     const storedName = localStorage.getItem("userName");
     if (storedName) setUserName(storedName);
   }, [id]);
@@ -26,14 +25,26 @@ const CourseDetails = () => {
       .catch(() => alert("Erreur lors de l'inscription"));
   };
 
+  // fonction pour revenir en arrière
+  const goBack = () => navigate("/courses");
+
   if (!course) return <div className="loading">Chargement...</div>;
 
   return (
     <div className="details-container">
       <header className="details-header">
-        <h1>Détails du cours</h1>
-        {userName && <div className="user-name">Bonjour, {userName}</div>}
-      </header>
+  {/* Bouton flèche */}
+  <button className="back-button" onClick={() => navigate("/courses")}>
+    &#8592;
+  </button>
+
+  {/* Texte “Détails” */}
+  <h1 className="details-title">Détails du cours</h1>
+
+  {/* Nom utilisateur */}
+  {userName && <div className="user-name">{userName}</div>}
+</header>
+
 
       <div className="course-card">
         <img

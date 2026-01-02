@@ -1,29 +1,42 @@
 import React, { useEffect, useState } from "react";
 import API from "../api";
-import { Link } from "react-router-dom";
-import "./Courses.css"; // fichier CSS dédié
+import { Link, useNavigate } from "react-router-dom";
+import "./Courses.css";
 
 const Courses = () => {
   const [courses, setCourses] = useState([]);
   const [userName, setUserName] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
-    // Récupère les cours
     API.get("/courses")
       .then((res) => setCourses(res.data))
       .catch((err) => console.error(err));
 
-    // Récupère le nom de l'utilisateur depuis localStorage (ou tu peux le stocker après login)
     const storedName = localStorage.getItem("userName");
     if (storedName) setUserName(storedName);
   }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("userName");
+    navigate("/");
+  };
 
   return (
     <div className="courses-container">
       <header className="courses-header">
         <h1>Liste des cours</h1>
-        {userName && <div className="user-name">Bonjour, {userName}</div>}
+        {userName && (
+          <div className="user-info">
+            <span className="user-name"> {userName}</span>
+            <button className="logout-button" onClick={handleLogout}>
+              Déconnexion
+            </button>
+          </div>
+        )}
       </header>
+
       <div className="courses-grid">
         {courses.map((course) => (
           <div key={course.id} className="course-card">
